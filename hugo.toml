@@ -1,0 +1,24 @@
+baseURL = 'https://lachcrafter.de/'
+languageCode = 'en-us'
+title = 'LachCrafter'
+theme = 'hugo-theme-m10c'
+
+[params]
+   author = "LachCrafter"
+   description = "student and software developer"
+   avatar = "https://avatars.githubusercontent.com/u/100131971?v=4"
+
+[[menu.main]]
+  identifier = "blogs"
+  name = "Blogs"
+  url = "/blogs/"
+
+[[menu.main]]
+  identifier = "projects"
+  name = "Projects"
+  url = "/projects/"
+
+[[params.social]]
+  icon = "brand-github"
+  name = "My Github"
+  url = "https://github.com/LachCrafter"
