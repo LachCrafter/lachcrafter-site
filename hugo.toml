@@ -26,3 +26,7 @@ theme = 'hugo-theme-m10c'
     icon = "brand-github"
     name = "My Github"
     url = "https://github.com/LachCrafter"
+  [[params.social]]
+    icon = "brand-gitea"
+    name = "My Gitea"
+    url = "https://git.lachcrafter.de/"
