@@ -26,11 +26,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Deploy to server via rsync
         uses: burnett01/rsync-deployments@7.0.2
-      - name: List files
-        run: ls
         with:
           switches: -avzr --delete
-          path: ${{ gitea.workspace }}/public/*
+          path: /public/*
           remote_path: ${{ secrets.DEPLOY_PATH }}
           remote_host: ${{ secrets.DEPLOY_HOST }}
           remote_port: ${{ secrets.DEPLOY_PORT }}
