@@ -7,8 +7,14 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
-      - name: Installing Hugo
-        run: sudo apt -y install hugo
+      - name: Get latest Hugo version
+        run: |
+          url=$(curl --silent "https://api.github.com/repos/gohugoio/hugo/releases/latest" | jq -r '.assets[] | select(.name | contains("linux-amd64.tar.gz")) | .browser_download_url' | grep -E 'hugo_[0-9]+\.[0-9]+\.[0-9]+_linux-amd64.tar.gz')
+          wget -P /tmp/hugo/ "$url"
+          version=$(echo "$url" | grep -oP 'hugo_\K[0-9]+\.[0-9]+\.[0-9]+')
+          echo "Downloaded Hugo version: $version"
+      - name: Unpack Hugo
+        run: tar -xf /tmp/hugo/* -C ${{ gitea.workspace }}/bin
       - name: Generating static pages
         run: hugo --minify
 
