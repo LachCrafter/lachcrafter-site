@@ -17,7 +17,7 @@ jobs:
       - name: Unpack Hugo
         run: tar -xf /tmp/hugo/* -C ${{ gitea.workspace }}/bin
       - name: Clone theme repository
-        run: git clone https://github.com/vaga/hugo-theme-m10c.git {{ gitea.workspace }}/themes/hugo-theme-m10c
+        run: git clone https://github.com/vaga/hugo-theme-m10c.git ${{ gitea.workspace }}/themes/hugo-theme-m10c
       - name: Generating static pages
         run: ${{ gitea.workspace }}/bin/hugo --minify
       - name: Deploy to server via rsync
