@@ -1,0 +1,21 @@
+name: Generate and deploy
+on: [push]
+
+jobs:
+  Generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Entering Nix shell environment
+        run: nix-shell
+      - name: Generating static pages
+        run: hugo
+
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+      - name: Moving static pages to web server
+        run: ls
