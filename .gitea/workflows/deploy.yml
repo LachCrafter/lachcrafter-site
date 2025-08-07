@@ -11,7 +11,7 @@ jobs:
         run: |
           url=$(curl --silent "https://api.github.com/repos/gohugoio/hugo/releases/latest" | jq -r '.assets[] | select(.name | contains("linux-amd64.tar.gz")) | .browser_download_url' | grep -E 'hugo_extended_[0-9]+\.[0-9]+\.[0-9]+_linux-amd64.tar.gz')
           wget -P /tmp/hugo/ "$url"
-          version=$(echo "$url" | grep -oP 'hugo_\K[0-9]+\.[0-9]+\.[0-9]+')
+          version=$(echo "$url" | grep -oP 'hugo_extended_\K[0-9]+\.[0-9]+\.[0-9]+')
           echo "Downloaded Hugo version: $version"
           mkdir ${{ gitea.workspace }}/bin
       - name: Unpack Hugo
