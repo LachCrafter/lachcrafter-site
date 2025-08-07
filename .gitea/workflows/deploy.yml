@@ -8,7 +8,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
       - name: Installing Hugo
-        run: sudo apt install -y hugo
+        run: sudo apt -y install hugo
       - name: Generating static pages
         run: hugo --minify
 
