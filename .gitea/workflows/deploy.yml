@@ -18,10 +18,6 @@ jobs:
         run: tar -xf /tmp/hugo/* -C ${{ gitea.workspace }}/bin
       - name: Generating static pages
         run: ${{ gitea.workspace }}/bin/hugo --minify
-
-  Deploy:
-    runs-on: ubuntu-latest
-    steps:
       - name: Check out code
         uses: actions/checkout@v4
       - name: Deploy to server via rsync
