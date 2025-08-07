@@ -7,8 +7,6 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
-      - name: Entering Nix shell environment
-        run: nix-shell
       - name: Generating static pages
         run: hugo
 
