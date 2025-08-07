@@ -17,3 +17,5 @@ jobs:
         uses: actions/checkout@v4
       - name: Moving static pages to web server
         run: ls
+      - name: Cleaning up
+        run: rm -rf public/
