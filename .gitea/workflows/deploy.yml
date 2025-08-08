@@ -13,7 +13,7 @@ jobs:
           wget -P /tmp/hugo/ "$url"
           version=$(echo "$url" | grep -oP 'hugo_extended_\K[0-9]+\.[0-9]+\.[0-9]+')
           echo "Downloaded Hugo version: $version"
-          mkdir ${{ gitea.workspace }}/bin
+          mkdir ${{ gitea.workspace }}/bin
       - name: Unpack Hugo
         run: tar -xf /tmp/hugo/* -C ${{ gitea.workspace }}/bin
       - name: Clone theme repository
